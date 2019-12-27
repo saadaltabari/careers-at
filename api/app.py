@@ -1,8 +1,9 @@
 from flask import request
 from flask_api import FlaskAPI
 
-from settings import SETTINGS
+from decorators import authorize_admin_users_only
 from models import db, Candidate
+from settings import SETTINGS
 from validators import CreateCandidateRequestValidator
 
 
@@ -14,6 +15,7 @@ db.init_app(app)
 
 
 @app.route('/api/candidates', methods=['GET'])
+@authorize_admin_users_only
 def list_candidates():
     """
     List Candidates endpoint.
