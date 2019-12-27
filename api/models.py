@@ -23,16 +23,29 @@ class Candidate(db.Model, FlaskSerializeMixin):
     created = db.Column(db.DateTime, nullable=False)
 
     @classmethod
-    def create(cls, **kwargs):
+    def create(cls, full_name, dob, years_of_experience, department, resume):
+        """
+        A static method for saving new candidates to the database.
+
+        :param full_name: str
+            name of candidate
+        :param dob: str
+            date of birth of the candidate
+        :param years_of_experience: int
+            years of experience the candidate has
+        :param department: str
+            the department the candidate is applying for
+        :param resume: FileStorage
+            the candidate's resume file
+        :return:
+        """
         candidate = cls(
-            full_name=kwargs["full_name"],
-            dob=kwargs["dob"],
-            years_of_experience=kwargs["years_of_experience"],
-            department=kwargs["department"],
+            full_name=full_name,
+            dob=dob,
+            years_of_experience=years_of_experience,
+            department=department,
             created=datetime.now()
         )
-
-        resume = kwargs['resume']
 
         secure_filename(resume.filename)
         resume_filename = "{}-{}".format(str(uuid.uuid4())[:8], secure_filename(resume.filename))
