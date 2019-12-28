@@ -1,6 +1,6 @@
 {
   "DATABASE": {
-    "BACKEND": "mysql",
+    "BACKEND": "mysql+pymysql",
     "HOST": "db",
     "NAME": "careers",
     "USER": "root",
