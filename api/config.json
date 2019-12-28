@@ -1,7 +1,14 @@
 {
-  "SQLALCHEMY_DATABASE_URI": "sqlite:////Users/saadaltabari/Development/tests/careers-at/test.db",
-  "SQLALCHEMY_TRACK_MODIFICATIONS": false,
-  "UPLOAD_FOLDER": "/Users/saadaltabari/Development/tests/careers-at/uploads",
+  "DATABASE": {
+    "BACKEND": "mysql",
+    "NAME": "careers",
+    "USER": "root",
+    "PASSWORD": "pass123"
+  },
+  "FILE_STORAGE": {
+    "BACKEND": "",
+    "PATH": "/uploads"
+  },
   "ACCEPTED_RESUME_TYPES_MIME": {
     "pdf":  "application/pdf",
     "docx":  "application/vnd.openxmlformats-officedocument.wordprocessingml.document"

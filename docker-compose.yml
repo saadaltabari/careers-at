@@ -1,0 +1,19 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/uploads
+      - ./db:/db
+    depends_on:
+      - db
+
+  db:
+    image: "mariadb:10.4"
+    restart: always
+#    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: careers
+      MYSQL_ROOT_PASSWORD: pass123
