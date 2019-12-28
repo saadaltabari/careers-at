@@ -15,7 +15,7 @@ db = SQLAlchemy()
 
 class Candidate(db.Model, FlaskSerializeMixin):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    full_name = db.Column(db.String, nullable=False)
+    full_name = db.Column(db.String(255), nullable=False)
     dob = db.Column(db.Date, nullable=False)
     years_of_experience = db.Column(db.Integer, nullable=False)
     department = db.Column(db.String(7), nullable=False)
