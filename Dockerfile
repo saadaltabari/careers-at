@@ -21,7 +21,3 @@ RUN mkdir /uplods
 
 COPY ./api /app
 WORKDIR /app
-
-# Todo: set the followin command based on environment
-EXPOSE 5000
-CMD python -m flask run --host=0.0.0.0

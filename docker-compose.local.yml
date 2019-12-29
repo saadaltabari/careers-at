@@ -2,6 +2,9 @@ version: "3"
 services:
   api:
     build: .
+    command: sh -c "python -m flask run --host=0.0.0.0"
+    env_file:
+      - ./envs/local.env
     ports:
       - "5000:5000"
     volumes:
