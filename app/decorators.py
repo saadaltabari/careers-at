@@ -1,3 +1,4 @@
+from functools import wraps
 from flask import request
 from flask_api.exceptions import PermissionDenied
 
@@ -10,7 +11,7 @@ def authorize_admin_users_only(func):
     :param func:
     :return:
     """
-
+    @wraps(func)
     def wrapped_route(*args, **kwargs):
         if request.headers.get("X-ADMIN") != '1':
             raise PermissionDenied

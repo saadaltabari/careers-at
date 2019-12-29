@@ -1,8 +1,8 @@
-from flask import request
+from flask import request, redirect
 from flask_api import FlaskAPI
 
 from decorators import authorize_admin_users_only
-from file_storage import init_storage
+from file_storage import init_storage, RESUME_STORAGE
 from models import db, Candidate
 from settings import SETTINGS
 from validators import CreateCandidateRequestValidator
@@ -52,6 +52,20 @@ def create_candidate():
         return candidate.as_json, 201
 
     return validator.errors, 400
+
+
+@app.route('/api/candidate-resume/<int:candidate_id>', methods=['GET'])
+@authorize_admin_users_only
+def get_candidate_resume(candidate_id):
+    """
+    Download candidate resume endpoint.
+    Endpoint for administrators to install candidate resume files
+
+    :param candidate_id: int
+    :return: PDF or DOCX file
+    """
+    candidate = Candidate.query.get_or_404(candidate_id)
+    return redirect(candidate.resume)
 
 
 if __name__ == '__main__':
