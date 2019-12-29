@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_serialize import FlaskSerializeMixin
 from werkzeug.utils import secure_filename
 
-from settings import SETTINGS
+from file_storage import RESUME_STORAGE
 
 
 db = SQLAlchemy()
@@ -47,11 +47,12 @@ class Candidate(db.Model, FlaskSerializeMixin):
             created=datetime.now()
         )
 
-        secure_filename(resume.filename)
+        # rename file and save to storage
         resume_filename = "{}-{}".format(str(uuid.uuid4())[:8], secure_filename(resume.filename))
-        resume.save(os.path.join(SETTINGS['UPLOAD_FOLDER'], resume_filename))
+        RESUME_STORAGE.write(resume_filename, resume.read())
 
-        candidate.resume = resume_filename
+        # save file path to db
+        candidate.resume = os.path.join(RESUME_STORAGE.base_url, resume_filename)
 
         db.session.add(candidate)
         db.session.commit()

@@ -12,6 +12,7 @@ services:
 
   db:
     image: "mariadb:10.4"
+    restart: always
     environment:
       MYSQL_DATABASE: careers
       MYSQL_ROOT_PASSWORD: pass123

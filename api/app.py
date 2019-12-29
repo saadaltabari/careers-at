@@ -2,16 +2,17 @@ from flask import request
 from flask_api import FlaskAPI
 
 from decorators import authorize_admin_users_only
+from file_storage import init_storage
 from models import db, Candidate
 from settings import SETTINGS
 from validators import CreateCandidateRequestValidator
 
 
+# Initialize the application
 app = FlaskAPI(__name__)
-
 app.config.from_mapping(SETTINGS)
-
 db.init_app(app)
+init_storage(app)
 
 
 @app.route('/api/candidates', methods=['GET'])

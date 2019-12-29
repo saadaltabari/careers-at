@@ -3,3 +3,4 @@ Flask-SQLAlchemy==2.4.1
 Flask-API==1.1
 flask-serialize==1.1.0
 PyMySQL==0.9.3
+flask-fs==0.6.1

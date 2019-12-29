@@ -10,7 +10,8 @@ SETTINGS = {
         os.environ.get("DB_NAME")
     ),
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
-    "UPLOAD_FOLDER": "/uploads",
+    "FS_ROOT": "/uploads",
+    "FS_BACKEND": "local",
     "ACCEPTED_RESUME_TYPES_MIME": {
         "pdf":  "application/pdf",
         "docx":  "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
