@@ -1,4 +1,3 @@
-import os
 import uuid
 
 from datetime import datetime
@@ -52,7 +51,7 @@ class Candidate(db.Model, FlaskSerializeMixin):
         RESUME_STORAGE.write(resume_filename, resume.read())
 
         # save file path to db
-        candidate.resume = os.path.join(RESUME_STORAGE.base_url, resume_filename)
+        candidate.resume = RESUME_STORAGE.url(resume_filename)
 
         db.session.add(candidate)
         db.session.commit()

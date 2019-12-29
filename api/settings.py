@@ -11,7 +11,16 @@ SETTINGS = {
     ),
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "FS_ROOT": "/uploads",
-    "FS_BACKEND": "local",
+    "FS_BACKEND": "local", # s3
+
+    # Set the FS_Backend to s3 and
+    # configure the following settings
+    # to use AWS S3 Storage backend.
+
+    # "FS_S3_ACCESS_KEY": "",
+    # "FS_S3_SECRET_KEY": "",
+    # "FS_S3_ENDPOINT": "https://BUCKET_NAME.s3.amazonaws.com/",
+    # "FS_S3_REGION": "",
     "ACCEPTED_RESUME_TYPES_MIME": {
         "pdf":  "application/pdf",
         "docx":  "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
