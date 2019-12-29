@@ -18,7 +18,7 @@ This application is delivered using Docker, Docker containers wrap up software a
 * Install the application.
 
 ```shell script
-git@github.com:saadaltabari/careers-at.git && cd careers-at
+git clone git@github.com:saadaltabari/careers-at.git && cd careers-at
 ```
 
 * Run the application with `docker-compose`.
