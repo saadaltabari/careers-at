@@ -1,9 +1,10 @@
 # Careers at
 A simple Flask API application for applying to career openings.
 
-This application provides two API endpoints:
+This application provides three API endpoints:
 * Submit Application
 * List Candidates
+* Install Candidate Resume
 
 See the API [documentation](https://documenter.getpostman.com/view/2456151/SWLb9UsJ?version=latest) for further information.
 
