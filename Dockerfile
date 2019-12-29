@@ -8,7 +8,7 @@ RUN apk --update add \
 
 ENV PYTHONUNBUFFERED 1
 
-ENV FLASK_APP=app.py
+ENV FLASK_APP=api.py
 
 ARG FLASK_ENV_ARG=development
 ENV FLASK_ENV=$FLASK_ENV_ARG
@@ -19,5 +19,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN mkdir /app
 RUN mkdir /uplods
 
-COPY ./api /app
+COPY ./app /app
 WORKDIR /app

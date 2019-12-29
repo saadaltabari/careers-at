@@ -1,5 +1,5 @@
 from models import db
-from app import app
+from api import app
 from settings import SETTINGS
 
 
